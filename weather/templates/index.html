@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="weather-app">
+    <div class="weather-header">
+        <h1>Прогноз погоды для {{ data_city.name }}, {{ data_city.country }}</h1>
+        <div class="location-info">
+            <span> Координаты: {{ data_city.latitude|floatformat:2 }}°N, {{ data_city.longitude|floatformat:2 }}°E</span>
+        </div>
+    </div>
+
+    <div class="weather-table-container">
+        <table class="weather-table">
+            <thead>
+                <tr>
+                    {% for header in forecast.headers %}
+                    <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in forecast.items %}
+                <tr>
+                    {% for data in value %}
+                      {% if 'temperature' in key %}
+                        <td>
+                          {{ data }} {{ temperature_type }}
+                        </td>
+                      {% else %}
+                        <td>
+                          {{ data }}
+                        </td>
+                      {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{% url 'weather:form' %}" class="back-button">
+        <i class="fas fa-arrow-left"></i> Выбрать другой город
+    </a>
+</div>
+
+{% endblock %}

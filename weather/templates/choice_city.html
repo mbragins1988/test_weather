@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="weather-container">
+    <div class="weather-card">
+        <h1 class="weather-title">Прогноз погоды на 10 дней</h1>
+        {{ error }}
+        <form method="post" class="weather-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" 
+                       name="country" 
+                       placeholder="Введите страну" 
+                       required
+                       class="weather-input">
+                <input type="text" 
+                       name="city" 
+                       placeholder="Введите город" 
+                       required
+                       class="weather-input">
+                <button type="submit" class="weather-button">
+                    <span>Узнать прогноз</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
