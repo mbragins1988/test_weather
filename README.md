@@ -1,20 +1,20 @@
 # test_weather
 
 ### Описание 
-Web-приложение для просмотра прогноза погоды на 10 дней.
+Web-приложение для просмотра прогноза погоды на 10 дней. Необходимо ввести страну, город и нажать кнопку "Узнать прогноз". Загрузиться прогноз погоды, в котором указывается максимальная и минимальная температура воздуха и осадки.
 
 ### Как запустить проект
 
 Клонировать репозиторий:
 
 ```
-git clone git@github.com:mbragins1988/Yatube.git
+git clone git@github.com:mbragins1988/test_weather.git
 ```
 
 Перейти в папку
 
 ```
-cd Yatube
+cd test_weather
 ```
 
 Cоздать и активировать виртуальное окружение:
@@ -37,10 +37,10 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-Перейти в папку yatube:
+Перейти в папку test_weather:
 
 ```
-cd yatube
+cd test_weather
 ```
 
 Выполнить миграции
@@ -58,7 +58,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Перейти по адресу - http://127.0.0.1:8000
+Перейти по адресу - http://127.0.0.1:8000/weather/
 
 Создать суперпользователя
 
@@ -69,8 +69,8 @@ python3 manage.py createsuperuser
 Адрес админ-панели - http://127.0.0.1:8000/admin
 
 ### Стек технологий:
-- Python 3.7
-- Django 2.2.16
+- Python 3.8.10
+- Django 4.2.21
 
 ### Авторы проекта
 Михаил Брагин
